@@ -9,10 +9,10 @@ class LoadMessageEvent extends ChatEvent {
   List<Object> get props => [];
 }
 
-class sendMessageEvent extends ChatEvent {
+class SendMessageEvent extends ChatEvent {
   final Message message;
 
-  const sendMessageEvent({required this.message});
+  const SendMessageEvent({required this.message});
 
   @override
   List<Object> get props => [message];

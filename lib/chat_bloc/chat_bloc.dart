@@ -21,10 +21,10 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
         ]),
       );
     });
-    on<sendMessageEvent>((event, emit) async {
+    on<SendMessageEvent>((event, emit) async {
       try {
         // emit(ChatLoadingState());
-        await Future.delayed(Duration(seconds: 2));
+        await Future.delayed(const Duration(seconds: 2));
         // emit(ChatLoadedState())
         final currentState = state;
         if (currentState is ChatLoadedState) {

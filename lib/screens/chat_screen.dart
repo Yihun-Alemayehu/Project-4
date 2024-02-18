@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_4/chat_bloc/chat_bloc.dart';
 import 'package:project_4/data/model/message_model.dart';
 
+@immutable
 class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
 
-  TextEditingController _contentController = TextEditingController();
-  TextEditingController _senderController = TextEditingController();
+  final TextEditingController _contentController = TextEditingController();
+  final TextEditingController _senderController = TextEditingController();
 
   void _sendMessage(BuildContext context) {
     showModalBottomSheet(
@@ -17,7 +18,7 @@ class ChatScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Text('Send message'),
+              const Text('Send message'),
               TextField(
                 controller: _contentController,
                 decoration: const InputDecoration(
@@ -36,8 +37,8 @@ class ChatScreen extends StatelessWidget {
                 onPressed: () {
                   // context.read<ChatBloc>()..add(LoadMessageEvent());
                   context.read<ChatBloc>()
-                    ..add(
-                      sendMessageEvent(
+                    .add(
+                      SendMessageEvent(
                         message: Message(
                             senderName: _senderController.text,
                             content: _contentController.text),
