@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ChatBloc()..add(LoadMessageEvent()),
-      child: const MaterialApp(
+      child:  MaterialApp(
         home: ChatScreen(),
       ),
     );
